@@ -19,9 +19,6 @@ class Adapter:
         self.next = []
         self.storedCount = None
 
-    def __str__(self):
-        return "Adapter(" + self.num + ")"
-
     def count(self):
         if self.storedCount is not None:
             return self.storedCount
