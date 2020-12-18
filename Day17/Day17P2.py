@@ -45,5 +45,6 @@ def main():
     p2 = part2(active)
     print(f"Part2: {p2}")
 
+
 if __name__ == "__main__":
     main()

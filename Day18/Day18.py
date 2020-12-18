@@ -20,6 +20,7 @@ def toGroups(line):
         depthArr[-1].append(line[prev:])
     return head
 
+
 def doBadMath(parsedLine):
     for i in range(len(parsedLine)):
         if isinstance(parsedLine[i], list):
@@ -29,15 +30,17 @@ def doBadMath(parsedLine):
         parsedLine = str(eval(a.group(1))) + a.group(2)
     return parsedLine
 
+
 def doBadMathPart2(parsedLine):
     for i in range(len(parsedLine)):
         if isinstance(parsedLine[i], list):
             parsedLine[i] = doBadMathPart2(parsedLine[i])
     parsedLine = "".join(parsedLine)
-    while len(a := [b for b in re.finditer(r"\d+\+\d+", parsedLine)][::-1]): #this line is kinda cancer
+    while len(a := [b for b in re.finditer(r"\d+\+\d+", parsedLine)][::-1]):  # this line is kinda cancer
         for m in a:
             parsedLine = parsedLine[:m.start()] + str(eval(m.group(0))) + parsedLine[m.end():]
     return str(eval(parsedLine))
+
 
 def main():
     with open("input1.txt", "r") as f:
@@ -46,6 +49,7 @@ def main():
     p2l = [toGroups(a) for a in lines]
     print(f"Part1: {sum([int(doBadMath(a)) for a in p1l])}")
     print(f"Part1: {sum([int(doBadMathPart2(a)) for a in p2l])}")
+
 
 if __name__ == "__main__":
     main()
