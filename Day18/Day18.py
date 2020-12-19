@@ -48,7 +48,7 @@ def main():
     p1l = [toGroups(a) for a in lines]
     p2l = [toGroups(a) for a in lines]
     print(f"Part1: {sum([int(doBadMath(a)) for a in p1l])}")
-    print(f"Part1: {sum([int(doBadMathPart2(a)) for a in p2l])}")
+    print(f"Part2: {sum([int(doBadMathPart2(a)) for a in p2l])}")
 
 
 if __name__ == "__main__":
