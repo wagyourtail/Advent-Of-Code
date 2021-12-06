@@ -52,6 +52,18 @@ def part2(data):
 
     print(sum(buckets.values()))
 
+def part2_with_lists(data):
+    fish = [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    for i in data:
+        fish[i] += 1
+
+    for i in range(256):
+        dup = fish.pop(0)
+        fish.append(dup)
+        fish[6] += dup
+
+    print(sum(fish))
+
 
 def main():
     with open('inp6.txt', 'r') as f:
@@ -61,6 +73,7 @@ def main():
 
     part1(data)
     part2(data)
+    part2_with_lists(data)
 
 
 if __name__ == "__main__":
