@@ -1,8 +1,9 @@
 def part1(data):
     data = [d.split('|') for d in data]
     data = [x[1].strip().split() for x in data]
-    data = [1 for a in data for x in a if len(x) in [2,4,3,7]]
+    data = [1 for a in data for x in a if len(x) in [2, 4, 3, 7]]
     return sum(data)
+
 
 def xor(a, b):
     c = ""
@@ -11,11 +12,13 @@ def xor(a, b):
             c += i
     return c
 
+
 def inS(a, b):
     for i in a:
         if i not in b:
             return False
     return True
+
 
 def part2(data, part1_result):
     data = [d.split('|') for d in data]
@@ -32,7 +35,7 @@ def part2(data, part1_result):
                 nums[7] = sorted(i)
             elif len(i) == 7:
                 nums[8] = sorted(i)
-        #6,9,0
+        # 6,9,0
         sn = [sorted(i) for i in datum[0] if len(i) == 6]
         if inS(nums[4], sn[0]):
             nums[9] = sn[0]
@@ -59,7 +62,7 @@ def part2(data, part1_result):
                 nums[0] = sn[1]
                 nums[6] = sn[0]
 
-        #2,3,5
+        # 2,3,5
         sn = [sorted(i) for i in datum[0] if len(i) == 5]
         if inS(nums[7], sn[0]):
             nums[3] = sn[0]
@@ -96,8 +99,6 @@ def part2(data, part1_result):
 
         total += int(s)
     return total
-
-
 
 
 def main():
