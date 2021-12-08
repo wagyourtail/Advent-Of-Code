@@ -5,14 +5,6 @@ def part1(data):
     return sum(data)
 
 
-def xor(a, b):
-    c = ""
-    for i in a:
-        if i not in b:
-            c += i
-    return c
-
-
 def inS(a, b):
     for i in a:
         if i not in b:
@@ -66,7 +58,7 @@ def part2(data, part1_result):
         sn = [sorted(i) for i in datum[0] if len(i) == 5]
         if inS(nums[7], sn[0]):
             nums[3] = sn[0]
-            if len(xor(nums[6], sn[1])) == 1:
+            if inS(sn[1], nums[6]):
                 nums[5] = sn[1]
                 nums[2] = sn[2]
             else:
@@ -74,7 +66,7 @@ def part2(data, part1_result):
                 nums[2] = sn[1]
         elif inS(nums[7], sn[1]):
             nums[3] = sn[1]
-            if len(xor(nums[6], sn[0])) == 1:
+            if inS(sn[0], nums[6]):
                 nums[5] = sn[0]
                 nums[2] = sn[2]
             else:
@@ -82,7 +74,7 @@ def part2(data, part1_result):
                 nums[2] = sn[0]
         else:
             nums[3] = sn[2]
-            if len(xor(nums[6], sn[0])) == 1:
+            if inS(sn[0], nums[6]):
                 nums[5] = sn[0]
                 nums[2] = sn[1]
             else:
