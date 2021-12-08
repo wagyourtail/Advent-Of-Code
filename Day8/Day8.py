@@ -20,15 +20,15 @@ def part2(data, part1_result):
         nums = {}
         for i in datum[0]:
             if len(i) == 2:
-                nums[1] = sorted(i)
+                nums[1] = i
             elif len(i) == 4:
-                nums[4] = sorted(i)
+                nums[4] = i
             elif len(i) == 3:
-                nums[7] = sorted(i)
+                nums[7] = i
             elif len(i) == 7:
-                nums[8] = sorted(i)
+                nums[8] = i
         # 6,9,0
-        sn = [sorted(i) for i in datum[0] if len(i) == 6]
+        sn = [i for i in datum[0] if len(i) == 6]
         if inS(nums[4], sn[0]):
             if inS(nums[1], sn[1]):
                 nums[9], nums[0], nums[6] = sn
@@ -46,7 +46,7 @@ def part2(data, part1_result):
                 nums[6], nums[0], nums[9] = sn
 
         # 2,3,5
-        sn = [sorted(i) for i in datum[0] if len(i) == 5]
+        sn = [i for i in datum[0] if len(i) == 5]
         if inS(nums[7], sn[0]):
             if inS(sn[1], nums[6]):
                 nums[3], nums[5], nums[2] = sn
@@ -65,7 +65,7 @@ def part2(data, part1_result):
 
         revNum = {}
         for i in nums:
-            revNum["".join(nums[i])] = i
+            revNum["".join(sorted(nums[i]))] = i
 
         s = ""
         for i in datum[1]:
