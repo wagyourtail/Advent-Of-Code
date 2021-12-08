@@ -30,56 +30,38 @@ def part2(data, part1_result):
         # 6,9,0
         sn = [sorted(i) for i in datum[0] if len(i) == 6]
         if inS(nums[4], sn[0]):
-            nums[9] = sn[0]
             if inS(nums[1], sn[1]):
-                nums[0] = sn[1]
-                nums[6] = sn[2]
+                nums[9], nums[0], nums[6] = sn
             else:
-                nums[0] = sn[2]
-                nums[6] = sn[1]
+                nums[9], nums[6], nums[0] = sn
         elif inS(nums[4], sn[1]):
-            nums[9] = sn[1]
             if inS(nums[1], sn[0]):
-                nums[0] = sn[0]
-                nums[6] = sn[2]
+                nums[0], nums[9], nums[6] = sn
             else:
-                nums[0] = sn[2]
-                nums[6] = sn[0]
+                nums[6], nums[9], nums[0] = sn
         else:
-            nums[9] = sn[2]
             if inS(nums[1], sn[0]):
-                nums[0] = sn[0]
-                nums[6] = sn[1]
+                nums[0], nums[6], nums[9] = sn
             else:
-                nums[0] = sn[1]
-                nums[6] = sn[0]
+                nums[6], nums[0], nums[9] = sn
 
         # 2,3,5
         sn = [sorted(i) for i in datum[0] if len(i) == 5]
         if inS(nums[7], sn[0]):
-            nums[3] = sn[0]
             if inS(sn[1], nums[6]):
-                nums[5] = sn[1]
-                nums[2] = sn[2]
+                nums[3], nums[5], nums[2] = sn
             else:
-                nums[5] = sn[2]
-                nums[2] = sn[1]
+                nums[3], nums[2], nums[5] = sn
         elif inS(nums[7], sn[1]):
-            nums[3] = sn[1]
             if inS(sn[0], nums[6]):
-                nums[5] = sn[0]
-                nums[2] = sn[2]
+                nums[5], nums[3], nums[2] = sn
             else:
-                nums[5] = sn[2]
-                nums[2] = sn[0]
+                nums[2], nums[3], nums[5] = sn
         else:
-            nums[3] = sn[2]
             if inS(sn[0], nums[6]):
-                nums[5] = sn[0]
-                nums[2] = sn[1]
+                nums[5], nums[2], nums[3] = sn
             else:
-                nums[5] = sn[1]
-                nums[2] = sn[0]
+                nums[2], nums[5], nums[3] = sn
 
         revNum = {}
         for i in nums:
