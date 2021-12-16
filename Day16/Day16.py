@@ -1,4 +1,3 @@
-
 class BITSPacket:
     def __init__(self, version, id):
         self.version = version
@@ -9,6 +8,7 @@ class BITSPacket:
 
     def parseValue(self):
         raise NotImplementedError()
+
 
 class LiteralPacket(BITSPacket):
     def __init__(self, version, id, data):
@@ -21,7 +21,7 @@ class LiteralPacket(BITSPacket):
         half_bytes = []
         pointer = 0
         while pointer < len(data):
-            half_bytes.append(data[pointer+1:pointer+5])
+            half_bytes.append(data[pointer + 1:pointer + 5])
             if data[pointer] == '0':
                 break
             pointer += 5
@@ -45,25 +45,25 @@ class OpPacket(BITSPacket):
         return super().size() + 1 + self.lengthLength + sum(map(lambda x: x.size(), self.subPackets))
 
     def parseValue(self):
-        #sum
+        # sum
         if self.id == 0x0:
             c = 0
             for p in self.subPackets:
                 c += p.parseValue()
             return c
-        #multiply
+        # multiply
         elif self.id == 0x1:
             c = 1
             for p in self.subPackets:
                 c *= p.parseValue()
             return c
-        #min
+        # min
         elif self.id == 0x2:
             c = self.subPackets[0].parseValue()
             for p in self.subPackets[1:]:
                 c = min(c, p.parseValue())
             return c
-        #max
+        # max
         elif self.id == 0x3:
             c = self.subPackets[0].parseValue()
             for p in self.subPackets[1:]:
@@ -119,13 +119,13 @@ def parsePacket(data):
             raise Exception("Unknown length type")
 
 
-
 def part1(data):
     data = bin(int(data, 16))[2:]
     if len(data) % 4 != 0:
         data = '0' * (4 - len(data) % 4) + data
     p = parsePacket(data)
     return getVersionSum(p)
+
 
 def getVersionSum(packet):
     if isinstance(packet, LiteralPacket):
@@ -145,6 +145,7 @@ def part2(data, part1_result):
         data = '0' * (4 - len(data) % 4) + data
     p = parsePacket(data)
     return p.parseValue()
+
 
 def main():
     with open('inp16.txt', 'r') as f:
