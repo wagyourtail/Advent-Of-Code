@@ -122,3 +122,10 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+.idea/
+input/
+
+# Added by cargo
+
+/target
