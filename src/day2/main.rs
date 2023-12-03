@@ -25,7 +25,7 @@ fn main() {
         p2_input: part2,
     };
 
-    println!("Day 1 - Part 1: {}", part1::solve(shared));
-    println!("Day 1 - Part 2: {}", part2::solve(shared));
+    println!("Day 2 - Part 1: {}", part1::solve(shared));
+    println!("Day 2 - Part 2: {}", part2::solve(shared));
 
 }
