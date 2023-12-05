@@ -5,8 +5,6 @@ pub fn solve(shared: &mut Shared) -> String {
     let mut value = 0;
     shared.p1_input.split('\n').for_each(|line| {
         let semi = line.chars().into_iter().position(|c| c == ':').unwrap();
-        let key = line.get(5..semi).unwrap().parse::<i32>().unwrap();
-        let mut else_ = true;
         let mut red_count = 0;
         let mut blue_count = 0;
         let mut green_count = 0;
