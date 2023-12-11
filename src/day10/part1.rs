@@ -12,7 +12,7 @@ impl Pos {
     }
 }
 
-fn getConnected(pos: &Pos, map: &Vec<Vec<char>>) -> Option<(Pos, Pos)> {
+fn get_connected(pos: &Pos, map: &Vec<Vec<char>>) -> Option<(Pos, Pos)> {
     // get char at pos
     let c = map[pos.y as usize][pos.x as usize];
     // find next
@@ -32,7 +32,7 @@ fn getConnected(pos: &Pos, map: &Vec<Vec<char>>) -> Option<(Pos, Pos)> {
                 if (pos.x == 0 && dir.x == -1) || (pos.y == 0 && dir.y == -1) { continue; } // skip out of bounds
                 if (pos.x == map[0].len() as i32 - 1 && dir.x == 1) || (pos.y == map.len() as i32 - 1 && dir.y == 1) { continue; } // skip out of bounds
                 let next = Pos::new(pos.x + dir.x, pos.y + dir.y);
-                let connected = getConnected(&next, map);
+                let connected = get_connected(&next, map);
                 if connected.is_none() { continue; }
                 let unwrapped = connected.unwrap();
                 if unwrapped.0 == *pos || unwrapped.1 == *pos {
@@ -48,7 +48,7 @@ fn getConnected(pos: &Pos, map: &Vec<Vec<char>>) -> Option<(Pos, Pos)> {
 
 fn find_next(last: Pos, pos: Pos, map: &Vec<Vec<char>>) -> Pos {
     // get char at pos
-    let values = getConnected(&pos, map).unwrap();
+    let values = get_connected(&pos, map).unwrap();
     assert!(values.0 == last || values.1 == last, "Expected last to be one of the values, broken pipe!");
     // find value not equal last
     return if values.0 != last {
@@ -85,7 +85,7 @@ pub fn solve(shared: &mut Shared) -> String {
     // }
     let start = find_start(&map);
     let mut lasts = (start.clone(), start.clone());
-    let mut nexts = getConnected(&start, &map).unwrap();
+    let mut nexts = get_connected(&start, &map).unwrap();
     let mut result = 1;
     while {
         // // insert nexts into new_map
