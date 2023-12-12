@@ -19,8 +19,8 @@ fn parse_map(raw: &String) -> Vec<Vec<char>> {
     }
     // apply expansion
     let mut x_expanded: Vec<Vec<char>> = Vec::new();
-    for y in 0..lines.len() {
-        let mut new_line: Vec<char> = Vec::new();
+    for _ in 0..lines.len() {
+        let new_line: Vec<char> = Vec::new();
         x_expanded.push(new_line);
     }
     // x expansion
@@ -38,7 +38,7 @@ fn parse_map(raw: &String) -> Vec<Vec<char>> {
             }
         }
     }
-    // y expansion
+    // _y expansion
     let mut xy_expanded: Vec<Vec<char>> = Vec::new();
     for y in 0..x_expanded.len() {
         let new_line: Vec<char> = x_expanded[y].clone();
