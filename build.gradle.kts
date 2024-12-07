@@ -43,11 +43,11 @@ val day5 by sourceSets.creating {
 }
 val day6 by sourceSets.creating {
     dependencies {
-        implementation("xyz.wagyourtail.commons:commons-kt:1.0.0-SNAPSHOT")
+
     }
 }
 val day7 by sourceSets.creating {
     dependencies {
-        implementation("xyz.wagyourtail.commons:commons-kt:1.0.0-SNAPSHOT")
+
     }
 }
