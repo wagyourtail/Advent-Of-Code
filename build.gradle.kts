@@ -51,3 +51,7 @@ val day7 by sourceSets.creating {
 
     }
 }
+val day8 by sourceSets.creating {
+    compileClasspath += sourceSets.main.get().compileClasspath
+    runtimeClasspath += sourceSets.main.get().runtimeClasspath
+}
