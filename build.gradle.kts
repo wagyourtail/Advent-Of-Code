@@ -8,7 +8,7 @@ repositories {
 }
 
 dependencies {
-    implementation("xyz.wagyourtail.commons:commons-kt:1.0.0-SNAPSHOT")
+    implementation("xyz.wagyourtail.commons:commons-kt:1.0.2-SNAPSHOT")
 }
 
 val day0 by sourceSets.creating {
@@ -60,6 +60,10 @@ val day9 by sourceSets.creating {
     runtimeClasspath += sourceSets.main.get().runtimeClasspath
 }
 val day10 by sourceSets.creating {
+    compileClasspath += sourceSets.main.get().compileClasspath
+    runtimeClasspath += sourceSets.main.get().runtimeClasspath
+}
+val day11 by sourceSets.creating {
     compileClasspath += sourceSets.main.get().compileClasspath
     runtimeClasspath += sourceSets.main.get().runtimeClasspath
 }
