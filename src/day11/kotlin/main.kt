@@ -40,6 +40,6 @@ fun part1(src: String) {
 }
 
 fun part2(src: String) {
-    var stones = src.split(" ").map { it.toLong() }
-    println(stones.map { blinkP2[it to 75] }.sum())
+    val stones = src.split(" ").map { it.toLong() }
+    println(stones.sumOf { blinkP2[it to 75] })
 }
