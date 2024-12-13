@@ -9,6 +9,7 @@ repositories {
 
 dependencies {
     implementation("xyz.wagyourtail.commons:commons-kt:1.0.2-SNAPSHOT")
+    implementation("org.apache.commons:commons-math3:3.6.1")
 }
 
 val day0 by sourceSets.creating {
@@ -68,6 +69,10 @@ val day11 by sourceSets.creating {
     runtimeClasspath += sourceSets.main.get().runtimeClasspath
 }
 val day12 by sourceSets.creating {
+    compileClasspath += sourceSets.main.get().compileClasspath
+    runtimeClasspath += sourceSets.main.get().runtimeClasspath
+}
+val day13 by sourceSets.creating {
     compileClasspath += sourceSets.main.get().compileClasspath
     runtimeClasspath += sourceSets.main.get().runtimeClasspath
 }
