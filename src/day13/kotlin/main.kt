@@ -33,7 +33,7 @@ fun solveMin(machine: String): Double {
     ))
 
     val soln = aInv.multiply(s).data.flatMap { it.toList() }
-    if (soln.all { it.toDouble() < 100 && (abs(it.toInt().toDouble() - it.toDouble()) == 0.0) }) {
+    if (soln.all { it.toDouble() < 100 && it.denominatorAsInt == 1 }) {
         return soln[0].toDouble() * 3 + soln[1].toDouble()
     }
     return 0.0
@@ -58,7 +58,7 @@ fun solveMin2(machine: String): BigInteger {
     ))
 
     val soln = aInv.multiply(s).data.flatMap { it.toList() }
-    if (soln.all { (abs(it.toLong().toDouble() - it.toDouble()) == 0.0) }) {
+    if (soln.all { it.denominatorAsInt == 1 }) {
         return soln[0].bigDecimalValue().toBigInteger() * BigInteger("3") + soln[1].bigDecimalValue().toBigInteger()
     }
     return BigInteger("0")
