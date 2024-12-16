@@ -12,75 +12,9 @@ dependencies {
     implementation("org.apache.commons:commons-math3:3.6.1")
 }
 
-val day0 by sourceSets.creating {
-    dependencies {
-
+for (folder in file("src").listFiles()) {
+    sourceSets.create(folder.name) {
+        compileClasspath += sourceSets.main.get().compileClasspath
+        runtimeClasspath += sourceSets.main.get().runtimeClasspath
     }
-}
-val day1 by sourceSets.creating {
-    dependencies {
-
-    }
-}
-val day2 by sourceSets.creating {
-    dependencies {
-
-    }
-}
-val day3 by sourceSets.creating {
-    dependencies {
-
-    }
-}
-val day4 by sourceSets.creating {
-    dependencies {
-
-    }
-}
-val day5 by sourceSets.creating {
-    dependencies {
-
-    }
-}
-val day6 by sourceSets.creating {
-    dependencies {
-
-    }
-}
-val day7 by sourceSets.creating {
-    dependencies {
-
-    }
-}
-val day8 by sourceSets.creating {
-    compileClasspath += sourceSets.main.get().compileClasspath
-    runtimeClasspath += sourceSets.main.get().runtimeClasspath
-}
-val day9 by sourceSets.creating {
-    compileClasspath += sourceSets.main.get().compileClasspath
-    runtimeClasspath += sourceSets.main.get().runtimeClasspath
-}
-val day10 by sourceSets.creating {
-    compileClasspath += sourceSets.main.get().compileClasspath
-    runtimeClasspath += sourceSets.main.get().runtimeClasspath
-}
-val day11 by sourceSets.creating {
-    compileClasspath += sourceSets.main.get().compileClasspath
-    runtimeClasspath += sourceSets.main.get().runtimeClasspath
-}
-val day12 by sourceSets.creating {
-    compileClasspath += sourceSets.main.get().compileClasspath
-    runtimeClasspath += sourceSets.main.get().runtimeClasspath
-}
-val day13 by sourceSets.creating {
-    compileClasspath += sourceSets.main.get().compileClasspath
-    runtimeClasspath += sourceSets.main.get().runtimeClasspath
-}
-val day14 by sourceSets.creating {
-    compileClasspath += sourceSets.main.get().compileClasspath
-    runtimeClasspath += sourceSets.main.get().runtimeClasspath
-}
-val day15 by sourceSets.creating {
-    compileClasspath += sourceSets.main.get().compileClasspath
-    runtimeClasspath += sourceSets.main.get().runtimeClasspath
 }
