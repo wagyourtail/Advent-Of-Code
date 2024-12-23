@@ -29,7 +29,6 @@ fun cycles(graph: Map<String, Set<String>>, current: Set<String>, found: Mutable
             }
             val next = current + k
             if (found.any { it.containsAll(next) }) continue
-            found.add(next)
             yield(cycles(graph, next, found))
         }
     }.maxBy { it.size }
